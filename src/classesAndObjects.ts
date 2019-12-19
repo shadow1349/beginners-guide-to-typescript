@@ -1,4 +1,9 @@
-export class Person {
+export interface IPerson {
+  name: string;
+  age: number;
+}
+
+export class Person implements IPerson {
   name: string;
   age: number;
 
