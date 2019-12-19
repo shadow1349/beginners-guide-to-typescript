@@ -1,0 +1,25 @@
+{
+  "name": "beginners-guide-to-typescript",
+  "version": "1.0.0",
+  "description": "This is the repository that correlates to my book The Beginner's Guide to TypeScript, you can purchase the kindle book at the link above.",
+  "main": "dist/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^12.11.6",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadow1349/beginners-guide-to-typescript.git"
+  },
+  "author": "Sam Redmond",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shadow1349/beginners-guide-to-typescript/issues"
+  },
+  "homepage": "https://github.com/shadow1349/beginners-guide-to-typescript#readme"
+}

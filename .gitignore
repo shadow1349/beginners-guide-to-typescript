@@ -1,0 +1,5 @@
+# Dependencies
+node_modules/
+
+# Dist directory with built code
+dist/
