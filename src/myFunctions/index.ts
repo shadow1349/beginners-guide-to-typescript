@@ -1,5 +1,5 @@
-export * from './myfunctions';
-
+export * from "./myfunctions";
+export * from "./otherFunctions";
 
 import * as myFunctions from "./myfunctions";
 import { subtract } from "./myfunctions";
