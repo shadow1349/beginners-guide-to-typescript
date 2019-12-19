@@ -17,5 +17,5 @@ app.get("/", (req: express.Request, res: express.Response) => {
 });
 
 server.listen(8080, () => {
-  console.log("User management API running");
+  console.log("API running");
 });
