@@ -12,6 +12,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 
+app.use(
+  (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    console.log("I am a custom middleware function");
+    next();
+  }
+);
+
 app.get("/", (req: express.Request, res: express.Response) => {
   return res.json({ hello: "world" });
 });
