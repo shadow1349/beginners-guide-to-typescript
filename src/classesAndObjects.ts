@@ -1,3 +1,6 @@
+export type WeightMeasurementUnit = 'lb' | 'kg';
+const weight: [WeightMeasurementUnit, number] = ['lb', 10];
+
 export interface IPerson {
   name: string;
   age: number;
