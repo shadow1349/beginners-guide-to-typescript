@@ -6,6 +6,19 @@ export interface IPerson {
   age: number;
 }
 
+export enum UnitMeasurements {
+  lb = 0.45, // 1 lb = 0.45 kg
+  kg = 2.2 // 2 kg = 2.2 lb
+}
+
+export function convert(to: WeightMeasurementUnit, value: number) {
+  if (to === "kg") {
+    return Math.round(value * UnitMeasurements.lb);
+  } else {
+    return Math.round(value * UnitMeasurements.kg);
+  }
+}
+
 export class Person implements IPerson {
   name: string;
   age: number;
