@@ -1,5 +1,5 @@
-export type WeightMeasurementUnit = 'lb' | 'kg';
-const weight: [WeightMeasurementUnit, number] = ['lb', 10];
+export type WeightMeasurementUnit = "lb" | "kg";
+const weight: [WeightMeasurementUnit, number] = ["lb", 10];
 
 export interface IPerson {
   name: string;
@@ -37,3 +37,13 @@ export class Person implements IPerson {
     return null;
   }
 }
+
+class John extends Person {
+  constructor(name: string, age: number) {
+    super(name, age);
+  }
+}
+
+const newPerson = new John("John Doe", 123);
+
+console.log(newPerson.name); // John Doe
