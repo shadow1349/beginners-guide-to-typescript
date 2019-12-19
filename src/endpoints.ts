@@ -22,5 +22,5 @@ UserRouter.get("/:id", (req: express.Request, res: express.Response) => {
     return res.status(200).json({ user });
   }
 
-  return res.status(400).json({ error: "Something went wrong" });
+  return res.status(400).json({ error: `No user found with id ${id}` });
 });
