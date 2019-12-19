@@ -1,4 +1,6 @@
-export const users = [
+import { IUser } from "./models";
+
+export const users: IUser[] = [
   { id: 1, name: "John", age: 21 },
   { id: 2, name: "Jack", age: 20 },
   { id: 3, name: "Jill", age: 25 },
