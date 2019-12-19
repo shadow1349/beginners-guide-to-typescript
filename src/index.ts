@@ -1,1 +1,3 @@
-import * as myFunctions from './myFunctions';
+import * as myFunctions from "./myFunctions";
+
+console.log(myFunctions.doStuff());
