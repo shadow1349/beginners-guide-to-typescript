@@ -1,6 +1,7 @@
 import * as express from "express";
 import { users } from "./data";
 import { IUser } from "./models";
+import * as uuid from "uuid/v4";
 
 export const UserRouter = express.Router();
 
@@ -11,7 +12,7 @@ UserRouter.put("/", (req: express.Request, res: express.Response) => {
 
   const user: IUser = req.body.user;
 
-  user.id = users.length + 1;
+  user.id = uuid();
 
   users.push(user);
 
@@ -27,16 +28,12 @@ UserRouter.post("/:id", (req: express.Request, res: express.Response) => {
     return res.status(400).json({ error: "Please send a valid user document" });
   }
 
-  const id = Number.parseInt(req.params.id);
-
-  if (Number.isNaN(id)) {
-    return res.status(400).json({ error: "Id is not a number" });
-  }
-
-  const index = users.findIndex(x => x.id === id);
+  const index = users.findIndex(x => x.id === req.params.id);
 
   if (index === -1) {
-    return res.status(400).json({ error: `No user found with id ${id}` });
+    return res
+      .status(400)
+      .json({ error: `No user found with id ${req.params.id}` });
   }
 
   const user = users[index];
@@ -55,16 +52,12 @@ UserRouter.post("/:id", (req: express.Request, res: express.Response) => {
 });
 
 UserRouter.get("/:id", (req: express.Request, res: express.Response) => {
-  const id = Number.parseInt(req.params.id);
-
-  if (Number.isNaN(id)) {
-    return res.status(400).json({ error: "Id is not a number" });
-  }
-
-  const index = users.findIndex(x => x.id === id);
+  const index = users.findIndex(x => x.id === req.params.id);
 
   if (index === -1) {
-    return res.status(400).json({ error: `No user found with id ${id}` });
+    return res
+      .status(400)
+      .json({ error: `No user found with id ${req.params.id}` });
   }
 
   const user = users[index];
@@ -73,19 +66,15 @@ UserRouter.get("/:id", (req: express.Request, res: express.Response) => {
 });
 
 UserRouter.delete("/:id", (req: express.Request, res: express.Response) => {
-  const id = Number.parseInt(req.params.id);
-
-  if (Number.isNaN(id)) {
-    return res.status(400).json({ error: "Id is not a number" });
-  }
-
-  const index = users.findIndex(x => x.id === id);
+  const index = users.findIndex(x => x.id === req.params.id);
 
   if (index === -1) {
-    return res.status(400).json({ error: "" });
+    return res
+      .status(400)
+      .json({ error: `No user found with id ${req.params.id}` });
   }
 
   users.splice(index, 1);
 
-  return res.status(200).json({ message: "User deleted", id });
+  return res.status(200).json({ message: "User deleted", id: req.params.id });
 });
