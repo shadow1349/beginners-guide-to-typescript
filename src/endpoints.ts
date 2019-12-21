@@ -51,8 +51,6 @@ UserRouter.post("/:id", (req: express.Request, res: express.Response) => {
     user.age = userData.age;
   }
 
-  console.log(users[index]);
-
   return res.status(200).json({ user });
 });
 
