@@ -3,3 +3,6 @@ node_modules/
 
 # Dist directory with built code
 dist/
+
+# Make sure we don't commit any data
+.data/
