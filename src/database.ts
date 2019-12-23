@@ -45,7 +45,7 @@ class Database {
 
       this.fs.writeData(`${collectionName}.json`, { data: [] });
 
-      const newCollection = new Collection<T>(collectionName);
+      const newCollection = new Collection<T>(`${collectionName}.json`);
 
       this.collections.push(newCollection);
 
