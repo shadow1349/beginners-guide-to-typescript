@@ -35,10 +35,10 @@ class Database {
 
   createCollection<T>(name: string): Collection<T> {
     try {
-      const exists = this.getCollection(name);
+      const existingCollection = this.getCollection<T>(name);
 
-      if (exists) {
-        return this.getCollection(name);
+      if (existingCollection) {
+        return existingCollection;
       }
 
       const collectionName = this.normalizeName(name);
