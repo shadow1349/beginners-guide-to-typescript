@@ -9,13 +9,15 @@ export const UserRouter = express.Router();
 UserRouter.get("/:id", (req: express.Request, res: express.Response) => {
   const user = users.getDocumentById(req.params.id);
 
+  console.log('USER: ', user);
+
   if (!user) {
     return res
-      .send(400)
+      .status(400)
       .json({ error: `No user found with the id ${req.params.id}` });
   }
 
-  return res.send(200).json({ user });
+  return res.status(200).json({ user });
 });
 
 UserRouter.post("/:id", (req: express.Request, res: express.Response) => {

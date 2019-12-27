@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
 class DatabaseFileManager {
-  private dataFolder = `${__dirname}/../.data`;
+  private dataFolder = `${__dirname}/../../.data`;
 
   checkDataDirectory() {
     if (!fs.existsSync(this.dataFolder)) {

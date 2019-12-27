@@ -17,5 +17,7 @@ UsersRouter.put("/", (req: express.Request, res: express.Response) => {
 });
 
 UsersRouter.get("/", (req: express.Request, res: express.Response) => {
-  return res.status(200).json({ user: users.getDocuments() });
+  const documents = users.getDocuments();
+
+  return res.status(200).json({ users: documents });
 });
