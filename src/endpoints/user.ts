@@ -25,6 +25,10 @@ UserRouter.post("/:id", (req: express.Request, res: express.Response) => {
 
   const user = users.modifyDocument(req.params.id, req.body.user);
 
+  if (!user) {
+    return res.status(400).json({ error: "Could not modify this user" });
+  }
+
   return res.status(200).json({ user });
 });
 

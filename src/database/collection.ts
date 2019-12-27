@@ -29,9 +29,10 @@ class Collection<T> {
     if (index !== -1) {
       this.documents[index].data = data;
       this.fs.modifyFile(this.name, data);
+      this.documents[index].data;
     }
 
-    return this.documents[index];
+    return null as null;
   }
 
   getDocuments() {
