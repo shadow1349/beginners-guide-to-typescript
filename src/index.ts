@@ -1,13 +1,21 @@
-import Database from "./database";
+import * as express from "express";
+import { createServer } from "http";
+import * as bodyParser from "body-parser";
+import * as cors from "cors";
+import * as morgan from "morgan";
+import { UserRouter, UsersRouter } from "./endpoints";
 
-(() => {
-  const database = new Database();
+const app = express();
+const server = createServer(app);
 
-  const collection = database.createCollection<{ name: string }>("Users");
+app.use(cors({ origin: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(morgan("dev"));
 
-  const userDocuments = collection.getDocuments();
+app.use("/users", UsersRouter);
+app.use("/user", UserRouter);
 
-  collection.addDocument({ name: "John" });
-
-  console.log(userDocuments);
-})();
+server.listen(8080, () => {
+  console.log("API running");
+});

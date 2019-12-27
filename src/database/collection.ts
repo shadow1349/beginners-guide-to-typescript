@@ -1,5 +1,5 @@
 import * as uuid from "uuid/v4";
-import Document from "./document";
+import { Document } from "../models";
 import DatabaseFileManager from "./fileSystem";
 
 class Collection<T> {
@@ -31,7 +31,7 @@ class Collection<T> {
       this.fs.modifyFile(this.name, data);
     }
 
-    return null as null;
+    return this.documents[index];
   }
 
   getDocuments() {
@@ -54,7 +54,10 @@ class Collection<T> {
     if (index !== -1) {
       this.documents.splice(index, 1);
       this.fs.modifyFile(this.name, { id }, "delete");
+      return true;
     }
+
+    return false;
   }
 }
 
