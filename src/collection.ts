@@ -28,7 +28,7 @@ class Collection<T> {
 
     if (index !== -1) {
       this.documents[index].data = data;
-      this.fs.modifyFile(this.name, data);
+      this.fs.modifyFile(this.name, data, 'modify');
       return this.documents[index].data;
     }
 
