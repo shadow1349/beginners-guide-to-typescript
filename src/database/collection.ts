@@ -28,8 +28,13 @@ class Collection<T> {
 
     if (index !== -1) {
       this.documents[index].data = data;
-      this.fs.modifyFile(this.name, data);
-      this.documents[index].data;
+
+      if (!data["id"]) {
+        data["id"] = id;
+      }
+
+      this.fs.modifyFile(this.name, this.documents[index].data, 'modify');
+      return this.documents[index].data;
     }
 
     return null as null;

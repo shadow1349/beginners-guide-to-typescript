@@ -9,8 +9,6 @@ export const UserRouter = express.Router();
 UserRouter.get("/:id", (req: express.Request, res: express.Response) => {
   const user = users.getDocumentById(req.params.id);
 
-  console.log('USER: ', user);
-
   if (!user) {
     return res
       .status(400)
