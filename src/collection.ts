@@ -31,7 +31,7 @@ class Collection<T> {
       this.fs.modifyFile(this.name, data);
     }
 
-    return null as null;
+    return this.documents[index].data;
   }
 
   getDocuments() {
